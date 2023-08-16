@@ -90,8 +90,8 @@
                             <a class="nav-link active" th:if="${rol == 'USER' || rol == 'PROVEEDOR' || rol == 'ADMIN'}" aria-current="page" href="/inicio">Home</a>
                             <a class="nav-link active" th:unless="${rol == 'USER' || rol == 'PROVEEDOR'|| rol == 'ADMIN'}" aria-current="page" href="/">Home</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <li class="nav-item dropdown"><!--"nav-link dropdown-toggle"-->
+                            <a class="nav-link active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Buscar proveedores de servicios
                             </a>
                             <ul class="dropdown-menu">
@@ -120,8 +120,8 @@
                         </li>
                     </ul>
 
-                    <div class="btn-group dropstart">   <!---->
-                        <a class="nav-link dropdown-toggle" style="" href="#" id="navbarDropdown" data-bs-toggle="dropdown"  role="button"  aria-expanded="false"> 
+                    <div class="btn-group dropstart">   <!--"nav-link dropdown-toggle"-->
+                        <a class="nav-link active" style="" href="#" id="navbarDropdown" data-bs-toggle="dropdown"  role="button"  aria-expanded="false"> 
                             Perfil
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
