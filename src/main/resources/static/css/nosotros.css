@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+/* Estilos para la sección */
+        #intro {
+            width: 50%; /* Ancho del 50% */
+            margin: 0 auto; /* Centrar horizontalmente */
+            text-align: center; /* Centrar el texto */
+            padding-top: 5rem; /* Espaciado en la parte superior */
+        }
+
+        /* Estilo para la imagen */
+        #intro img {
+            width: 100%; /* Ancho del 100% para ocupar todo el contenedor */
+            max-width: 600px; /* Máximo ancho de la imagen */
+        }

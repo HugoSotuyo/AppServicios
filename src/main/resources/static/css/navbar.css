@@ -1,0 +1,146 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+.navbar {
+    background-color: #fff;
+    padding: 10px 20px;
+}
+
+.navbar-brand img {
+    width: 80px;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    background-color: #fff;
+    padding: 10px 20px;
+}
+
+.navbar-brand img {
+    width: 80px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.navbar-brand .chacras {
+    color: #fff;
+    font-size: 24px;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Estilos para la barra de navegación en dispositivos móviles */
+@media only screen and (max-width: 768px) {
+    .navbar-brand img {
+        width: 60px;
+        height: auto;
+    }
+
+    .navbar-brand .chacras {
+        font-size: 20px;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 14px;
+    }
+
+    .navbar-toggler-icon {
+        background-color: #fff;
+    }
+
+    .btn-group .dropdown-menu {
+        min-width: 200px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .btn-group .dropdown-menu p {
+        margin: 5px 0;
+    }
+
+    .btn-group .dropdown-menu img {
+        max-width: 100px;
+        height: auto;
+        display: block;
+        margin: 10px auto;
+        border-radius: 50%;
+    }
+
+    .btn-group .dropdown-menu .dropdown-item {
+        color: #333;
+        font-size: 14px;
+        padding: 5px 15px;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-group .dropdown-menu .dropdown-item:hover {
+        background-color: #f0f0f0;
+        color: #E57C3A;
+    }
+}
+
+/* Estilos para el desplegable */
+ul.dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-width: 200px;
+    padding: 10px;
+}
+
+ul.dropdown-menu li {
+    margin: 5px 0;
+}
+
+ul.dropdown-menu img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 50%;
+}
+
+ul.dropdown-menu .dropdown-item {
+    color: #333;
+    font-size: 16px;
+    padding: 5px 15px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+ul.dropdown-menu .dropdown-item:hover {
+    background-color: #f0f0f0;
+    color: #E57C3A;
+}
+.perfil-container {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 100;
+}
+.perfil-container p {
+    margin: 5px 0;
+}
+.perfil-container img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+    border: 2px solid #E57C3A;
+    margin-top: 10px;
+}
+
+div .btn-group{
+    position: relative;
+    padding-right: 6em;
+}

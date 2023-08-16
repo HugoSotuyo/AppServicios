@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+/* Estilos para el formulario de registro */
+.container-fluid.contenedor {
+    /* Estilos para centrar el texto usando text-align */
+    background-color: #f9f9f9;
+    padding: 50px;
+    border-radius: 10px;
+    text-align: center;
+    height: 200px;
+    line-height: 200px;
+}
+
+.formulario {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: 0 0 5px #E57C3A;
+}
+
+.form-control {
+    font-size: 18px !important;
+    height: 50px !important;
+    padding: 12px !important;
+}
+
+.btn-primary {
+    background-color: #E57C3A;
+    border: none;
+    font-size: 18px;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-primary:hover {
+    background-color: #C04819;
+}
+
+.botonVolver {
+    margin-right: 10px;
+}
+
+.mensajeError,
+.mensajeExito {
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.mensajeError {
+    background-color: #F05454;
+}
+
+.mensajeExito {
+    background-color: #47B881;
+}
+/* Estilos para el checkbox */
+.form-check-input {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+.form-check-label {
+    font-size: 16px;
+}

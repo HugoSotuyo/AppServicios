@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+/* CSS personalizado */
+body {
+    /*font-family: 'Roboto', Arial, sans-serif;*/
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para el encabezado */
+.navbar {
+    background-color: #fff;
+    padding: 10px 20px;
+}
+
+.navbar-brand img {
+    width: 80px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.navbar-brand .chacras {
+    color: #fff;
+    font-size: 24px;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Estilos para la barra de navegación */
+.navbar-expand-lg {
+    background-color: #fff;
+}
+
+.navbar-nav .nav-link {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #E57C3A;
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+}
+
+/* Estilos para el botón de login */
+.custom-button {
+    background-color: #E57C3A;
+    color: #fff;
+    border-color: #E57C3A;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.custom-button:hover {
+    background-color: #fff;
+    color: #E57C3A;
+}
+
+/* Estilos para el dropdown de registro */
+.btn-group .btn-primary {
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+/* Estilos para el slider de imágenes */
+.carousel-inner img {
+    max-height: 400px;
+    width: 100%;
+    
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #E57C3A;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+/* Estilos para la sección de introducción */
+#intro {
+    /*background-color: #f9f9f9;*/
+    padding: 50px 0;
+}
+
+#intro h1 {
+    color: #333;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#intro span {
+    color: #E57C3A;
+    font-size: 24px;
+}
+
+/* Estilos para los botones de servicios */
+.dropdown-menu {
+    background-color: #E57C3A;
+    border: none;
+}
+
+.dropdown-item {
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+.dropdown-item:hover {
+    background-color: #f1ffcf;
+    color: #E57C3A;
+}
+
+
+/* Estilos para el footer */
+footer {
+    background-color: #212529;
+    color: #fff;
+    padding: 30px 0;
+}
+
+footer h4 {
+    color: #E57C3A;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    color: #E57C3A;
+    font-size: 16px;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.2s ease;
+}
+
+footer ul li a:hover {
+    color: #2F2E2D;
+    border-bottom: 1px solid #E57C3A;
+}
+
+/* Estilos para el contenido del footer */
+.footer-content {
+    padding-top: 30px;
+    text-align: center;
+}
+
+/* Estilos para el botón de regresar al inicio */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #E57C3A;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.back-to-top:hover {
+    background-color: #fff;
+    color: #E57C3A;
+}
+/* Media queries para dispositivos móviles */
+@media only screen and (max-width: 768px) {
+    .navbar-brand img {
+        width: 60px;
+        height: auto;
+    }
+
+    .navbar-brand .chacras {
+        font-size: 20px;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 14px;
+    }
+
+    .custom-button {
+        font-size: 14px;
+    }
+
+    #intro h1 {
+        font-size: 28px;
+    }
+
+    #intro span {
+        font-size: 20px;
+    }
+
+    .dropdown-item {
+        font-size: 14px;
+    }
+}

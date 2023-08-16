@@ -1,0 +1,98 @@
+/*boton*/
+.u-btn {
+    /*display: inline-block;*/
+    display: table;
+    /*TODO maye need another solution for negative marin*/
+    cursor: pointer;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+    border: 0 none transparent;
+    outline-width: 0;
+    background-color: transparent;
+    margin: 0;
+    -webkit-text-decoration-skip: objects;
+    font-style: initial;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+    text-align: center;
+    padding: 10px 30px;
+    border-radius: 0;
+    --border-radius: 0;
+    align-self: flex-start;
+}
+/*pos5*/
+.u-sheet {
+    position: relative;
+    margin: 0 auto;
+}
+/*pos4*/
+.u-xl-mode .u-sheet {
+    width: var(--theme-sheet-width-xl);
+}
+/*foto*/
+.u-layout-col>.u-size-20 {
+    flex: 20 0 auto;
+}
+/*pos body3*/
+.u-layout-col,
+.u-layout-row,
+.u-layout-col>*,
+.u-layout-row>* {
+    display: flex;
+}
+/*pos body2*/
+.u-layout-col {
+    flex-direction: column;
+    min-height: -webkit-fit-content;
+    min-height: fit-content;
+}
+/*pos body*/
+.u-body {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+/*Datos personales*/
+h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    font-weight: 500;
+    color: inherit;
+}
+/*color letra btn*/
+.u-text-body-color,
+.u-input.u-text-body-color,
+.u-input.u-text-body-color[class*="u-border-"],
+li.active>a.u-button-style.u-text-body-color,
+li.active>a.u-button-style.u-text-body-color[class*="u-border-"],
+a.u-button-style.u-text-body-color,
+a.u-button-style.u-text-body-color[class*="u-border-"] {
+    color: #111111 !important;
+}
+/*body*/
+.u-body {
+    --theme-sheet-width-xl: 1140px;
+    --theme-sheet-width-lg: 940px;
+    --theme-sheet-width-md: 720px;
+    --theme-sheet-width-sm: 540px;
+    --theme-sheet-width-xs: 340px;
+}
+/*fondobtn*/
+.u-overlap.u-overlap-transparent:not(.u-overlap-contrast) .u-header :not(.u-nav-item)>.u-btn,
+.u-gradient>.u-container-layout>.u-btn,
+.u-image:not(.u-shading)>.u-container-layout>.u-btn,
+.u-btn {
+    background-color: #478ac9;
+    color: #ffffff;
+}
+

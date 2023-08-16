@@ -1,0 +1,50 @@
+   /* Estilos para la lista */
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    display: flex; /* Utilizamos flexbox para ajustar el diseño */
+    justify-content: space-between; /* Alineamos los elementos al principio y al final del contenedor */
+    align-items: center; /* Centramos verticalmente los elementos */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    position: relative; /* Agregamos posicionamiento relativo para el li */
+}
+li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #ccc;
+    height: 1px;
+}
+.solicitud-details {
+    flex: 3; /* Hace que los detalles de la solicitud ocupen todo el espacio disponible */
+        max-height: 100px; /* Establece una altura máxima para la descripción */
+        overflow: hidden; /* Recorta el texto que desborda */
+        text-overflow: ellipsis; /* Muestra puntos suspensivos cuando se recorta el texto */
+    
+}
+.solicitud-buttons {
+    display: flex; /* Coloca los botones en línea */
+    flex-direction: column; /* Los botones estarán en una columna vertical */
+    align-items: flex-end; /* Alineamos los botones a la derecha */
+    position: absolute; /* Posicionamos los botones de forma absoluta */
+    top: 10px; /* Alineamos los botones a la parte superior */
+    right: 30px; /* Alineamos los botones a la derecha */
+}
+.solicitud-buttons button {
+    margin-left: 10px; /* Agregamos un margen inferior para separar los botones */
+}
+.solicitud-item {
+    flex-grow: 1; 
+    display: flex; /* Mostrar los elementos en línea */
+    align-items: center; /* Alinear verticalmente los elementos */
+    justify-content: space-between; /* Espacio entre el contenido y los botones */
+    padding: 10px; /* Espaciado interno para mayor legibilidad */
+    border-bottom: 1px solid #ccc; /* Línea separadora entre elementos */
+}

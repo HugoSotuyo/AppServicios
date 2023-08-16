@@ -1,0 +1,145 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <link rel="stylesheet" th:href="@{/css/main.css}">
+        <link rel="stylesheet" th:href="@{/css/navbar.css}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    </head>
+    <body>
+        <!--ENCABEZADO-->
+        <nav class="nav.navbar.bg-body-tertiary" style="background-color: #f8df8210 ;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/" th:unless="${rol == 'USER' || rol == 'PROVEEDOR' || rol == 'ADMIN'}" style="display: inline-block;">
+                    <img th:src="@{/logo/Logo_FINAL.png}" alt="Logo" width="100" height="100" style="vertical-align: middle;">
+                    <p class="chacras" style="color: #E57C3A; text-align: center; margin-left: 10px; display: inline-block; vertical-align: middle;">Chacras Services</p>
+                </a>
+                <a class="navbar-brand" href="/inicio" th:if="${rol == 'USER' || rol == 'PROVEEDOR' || rol == 'ADMIN'}"style="display: inline-block;">
+                    <img th:src="@{/logo/Logo_FINAL.png}" alt="Logo" width="100" height="100" style="vertical-align: middle;">
+                    <p class="chacras" style="color: #E57C3A; text-align: center; margin-left: 10px; display: inline-block; vertical-align: middle;">Chacras Services</p>
+                </a>
+            </div>
+        </nav>
+        <!--BARRA DE NAVEGACION-->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" th:unless="${rol == 'USER' || rol == 'PROVEEDOR' || rol == 'ADMIN'}">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link" href="/conocenos">Nosotros</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"  aria-expanded="false">
+                                Servicios
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" title="Reparación y mantenimiento de sistemas de fontanería." th:href="@{/proveedor/lista/fontanero}">Servicio de Fontanería</a></li>
+                                <li><a class="dropdown-item" title="Instalación y reparación de sistemas eléctricos." th:href="@{/proveedor/lista/electricista}">Servicio de Electricidad</a></li>
+                                <li><a class="dropdown-item" title="Mantenimiento de jardines y áreas verdes." th:href="@{/proveedor/lista/jardinero}">Servicio de Jardinería</a></li>
+                                <li><a class="dropdown-item" title="Limpieza y mantenimiento de espacios residenciales y comerciales." th:href="@{/proveedor/lista/limpieza}">Servicio de Limpieza</a></li>
+                                <li><a class="dropdown-item" title="Pintura de interiores y exteriores." th:href="@{/proveedor/lista/pintura}">Servicio de Pintura</a></li>
+                                <li><a class="dropdown-item" title="Fabricación y reparación de muebles y estructuras de madera." th:href="@{/proveedor/lista/carpinteria}">Servicio de Carpintería</a></li>
+                                <li><a class="dropdown-item" title="Construcción y reparación de estructuras de albañilería." th:href="@{/proveedor/lista/albañileria}">Servicio de Albañilería</a></li>
+                                <li><a class="dropdown-item" title="Apertura y reparación de cerraduras y sistemas de seguridad." th:href="@{/proveedor/lista/cerrajeria}">Servicio de Cerrajería</a></li>
+                                <li><a class="dropdown-item" title="Instalación y mantenimiento de sistemas de climatización." th:href="@{/proveedor/lista/climatizacion}">Servicio de Climatización</a></li>
+                                <li><a class="dropdown-item" title="Reparación de electrodomésticos y equipos electrónicos." th:href="@{/proveedor/lista/electronica}">Servicio de Reparación de Electrodomésticos</a></li>
+                                <li><a class="dropdown-item" title="Instalación de sistemas de seguridad y vigilancia." th:href="@{/proveedor/lista/seguridad}">Servicio de Instalación de Sistemas de Seguridad</a></li>
+                                <li><a class="dropdown-item" title="Transporte y logística de mudanzas residenciales y comerciales." th:href="@{/proveedor/lista/mudanzas}">Servicio de Mudanzas</a></li>
+                                <li><a class="dropdown-item" title="Reparación y mantenimiento de vehículos automotores." th:href="@{/proveedor/lista/mecanica}">Servicio de Reparación de Automóviles</a></li>
+                                <li><a class="dropdown-item" title="Diseño de logotipos, folletos, carteles y material gráfico." th:href="@{/proveedor/lista/grafica}">Servicio de Diseño Gráfico</a></li>
+                                <li><a class="dropdown-item" title="Desarrollo y programación de aplicaciones y sistemas informáticos." th:href="@{/proveedor/lista/software}">Servicio de Desarrollo de Software</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                    <div class="d-flex"  th:unless="${rol == 'USER' || rol == 'PROVEEDOR' || rol == 'ADMIN'}">
+                        <a class="btn btn-outline-success custom-button" href="/login" id="boton" role="button" aria-expanded="false">
+                            Login
+
+                        </a>
+                    </div>
+
+                    <div class="btn-group"  th:unless="${rol == 'USER' || rol == 'PROVEEDOR' || rol == 'ADMIN'}">
+                        <button class="btn btn-primary registrar" type="button">Registrate</button>
+                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/registrar">Usuario</a></li>
+                            <li><a class="dropdown-item" href="/registroProveedor">Proveedor</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" th:if="${rol == 'USER' || rol == 'PROVEEDOR' || rol == 'ADMIN'}">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" th:if="${rol == 'USER' || rol == 'PROVEEDOR' || rol == 'ADMIN'}" aria-current="page" href="/inicio">Home</a>
+                            <a class="nav-link active" th:unless="${rol == 'USER' || rol == 'PROVEEDOR'|| rol == 'ADMIN'}" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Buscar proveedores de servicios
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" title="Reparación y mantenimiento de sistemas de fontanería." th:href="@{/proveedor/lista/fontanero}">Servicio de Fontanería</a></li>
+                                <li><a class="dropdown-item" title="Instalación y reparación de sistemas eléctricos." th:href="@{/proveedor/lista/electricista}">Servicio de Electricidad</a></li>
+                                <li><a class="dropdown-item" title="Mantenimiento de jardines y áreas verdes." th:href="@{/proveedor/lista/jardinero}">Servicio de Jardinería</a></li>
+                                <li><a class="dropdown-item" title="Limpieza y mantenimiento de espacios residenciales y comerciales." th:href="@{/proveedor/lista/limpieza}">Servicio de Limpieza</a></li>
+                                <li><a class="dropdown-item" title="Pintura de interiores y exteriores." th:href="@{/proveedor/lista/pintura}">Servicio de Pintura</a></li>
+                                <li><a class="dropdown-item" title="Fabricación y reparación de muebles y estructuras de madera." th:href="@{/proveedor/lista/carpinteria}">Servicio de Carpintería</a></li>
+                                <li><a class="dropdown-item" title="Construcción y reparación de estructuras de albañilería." th:href="@{/proveedor/lista/albañileria}">Servicio de Albañilería</a></li>
+                                <li><a class="dropdown-item" title="Apertura y reparación de cerraduras y sistemas de seguridad." th:href="@{/proveedor/lista/cerrajeria}">Servicio de Cerrajería</a></li>
+                                <li><a class="dropdown-item" title="Instalación y mantenimiento de sistemas de climatización." th:href="@{/proveedor/lista/climatizacion}">Servicio de Climatización</a></li>
+                                <li><a class="dropdown-item" title="Reparación de electrodomésticos y equipos electrónicos." th:href="@{/proveedor/lista/electronica}">Servicio de Reparación de Electrodomésticos</a></li>
+                                <li><a class="dropdown-item" title="Instalación de sistemas de seguridad y vigilancia." th:href="@{/proveedor/lista/seguridad}">Servicio de Instalación de Sistemas de Seguridad</a></li>
+                                <li><a class="dropdown-item" title="Transporte y logística de mudanzas residenciales y comerciales." th:href="@{/proveedor/lista/mudanzas}">Servicio de Mudanzas</a></li>
+                                <li><a class="dropdown-item" title="Reparación y mantenimiento de vehículos automotores." th:href="@{/proveedor/lista/mecanica}">Servicio de Reparación de Automóviles</a></li>
+                                <li><a class="dropdown-item" title="Diseño de logotipos, folletos, carteles y material gráfico." th:href="@{/proveedor/lista/grafica}">Servicio de Diseño Gráfico</a></li>
+                                <li><a class="dropdown-item" title="Desarrollo y programación de aplicaciones y sistemas informáticos." th:href="@{/proveedor/lista/software}">Servicio de Desarrollo de Software</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:if="${ rol == 'ADMIN'}" th:href="@{/trabajo/listaTrabajo/allTrabajos}">Lista trabajo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:if="${rol == 'ADMIN'}" th:href="@{/administrador/usuarios}">Lista de usuarios</a>
+                        </li>
+                    </ul>
+
+                    <div class="btn-group dropstart">   <!---->
+                        <a class="nav-link dropdown-toggle" style="" href="#" id="navbarDropdown" data-bs-toggle="dropdown"  role="button"  aria-expanded="false"> 
+                            Perfil
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            
+                            <!-- Elemento común que redirecciona a ver  perfil -->
+                            <li><a  th:if="${rol == 'ADMIN' || rol == 'USER' }"  class="dropdown-item" th:href="@{/perfilUser/__${id}__}">Ver Perfil</a></li>
+
+                            <li><a th:if="${ rol == 'PROVEEDOR'}" class="dropdown-item" th:href="@{/perfilProveedor/__${id}__}">Ver Perfil</a></li>
+                            <!-- Elemento común para todos los roles (Cerrar Sesión) -->
+                            <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
+                        </ul>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </body>
+
+</html>
