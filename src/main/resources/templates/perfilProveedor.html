@@ -13,59 +13,37 @@
         <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css}" rel="stylesheet"
               integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" th:href="@{/src/main/resources/static/css/usuario_lista.css}">
-
         <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css}"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" th:href="@{https://use.fontawesome.com/releases/v5.6.3/css/all.css}"
               integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
-
         <link rel="stylesheet" th:href="@{/css/navbar.css}" />
         <link rel="stylesheet" th:href="@{/css/main.css}" />
         <link rel="icon" th:href="@{/logo/Logo_FINAL.png}" type="image/png" />
-
-
         <!-- Incluye Popper.js -->
         <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js}"></script>
         <script th:src="@{https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js}"
                 integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
         crossorigin="anonymous"></script>
-
-
     </head>
-
     <body class="u-body u-xl-mode">
         <!--------NAVBAR 2------>
         <nav th:replace="~{/fragments/navbar :: nav}"
              th:with="idImagen=${idImagen},id=${id}, nombre=${nombre}, apellido=${apellido}, barrio=${barrio}, direccion=${direccion}, email=${email}, rol=${rol}">
         </nav>
-
-
         <section class="u-clearfix u-color-scheme-u10 u-section-1" id="sec-fa57">
-
-
             <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-
-
                 <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
-
                     <div class="u-gutter-0 u-layout">
-
                         <div class="u-layout-row">
-
                             <div class="u-size-30 u-size-60-md">
-
                                 <div class="u-layout-col">
-
                                     <div
                                         class="u-align-left u-container-style u-layout-cell u-left-cell u-size-40 u-layout-cell-1">
-
                                         <div class="u-container-layout u-valign-top u-container-layout-1">
                                             <h2 class="u-text u-text-default u-text-1">Mi perfil</h2>
                                         </div>
-
                                     </div>
-
-
                                     <div class="u-container-style u-image u-layout-cell u-left-cell u-size-20 u-image-1"
                                          src="" data-image-width="275" data-image-height="183"
                                          style="max-width: 275px; max-height: 183px; overflow: hidden;">
@@ -73,90 +51,53 @@
                                              th:src="@{/imagen/fotoPerfil/__${idImagen}__}"
                                              style="width: 100%; height: auto;" >
                                     </div>
-
-
                                 </div>
                             </div>
-
-
-
-
-
                             <div class="u-size-30 u-size-60-md">
                                 <div class="u-layout-col">
-
                                     <div
                                         class="u-align-left u-container-style u-layout-cell u-right-cell u-size-20 u-layout-cell-3">
-
                                         <div class="u-container-layout u-valign-top u-container-layout-3">
                                             <br><br><br>
                                             <h4 class="u-text u-text-default u-text-2">Datos Personales</h4>
-
                                             <p class="u-text u-text-3">
                                                 <span style="font-weight: 700;">Nombre:</span>
                                                 <span th:text="${proveedor.nombre}"></span> <br>
-
                                                 <span style="font-weight: 700;">Apellido: </span>
                                                 <span th:text="${proveedor.apellido}"></span> <br>
-
                                                 <span style="font-weight: 700;">Direccion: </span> 
-                                                <span
-                                                    th:text="${proveedor.direccion}"></span> <br>
-
+                                                <span th:text="${proveedor.direccion}"></span> <br>
                                                 <span style="font-weight: 700;"> Descripción: </span>
                                                 <span th:text="${proveedor.descripcion}"></span> <br>
-
                                                 <span style="font-weight: 700;">Remuneración aproximada por hora:</span>
                                                 <span th:text="${proveedor.remuneracion}"></span> <br>
-
                                                 <span style="font-weight: 700;">Servicio:</span>
                                                 <span th:text="${proveedor.servicio}"></span> <br>
-
                                                 <span style="font-weight: 700;">Cantidad de trabajos Realizados:</span>
                                                 <span th:text="${proveedor.cantTrabajos}"></span> <br>
-
                                                 <span style="font-weight: 700;">Calificación:</span>
                                                 <span th:text="${ proveedor.calificacion}"></span> <br>
                                             </p>
-
                                         </div>
-
                                     </div>
-
-
-
                                     <div
                                         class="u-align-left u-container-style u-layout-cell u-right-cell u-size-40 u-layout-cell-4">
-
-
                                         <div class="u-container-layout u-valign-bottom u-container-layout-4">
-
                                             <p class="u-text u-text-4">
-
                                                 <span style="font-weight: 700;">Rol:</span> <span
                                                     th:text="${proveedor.rol.toString()}"></span><br>
-
                                                 <span style="font-weight: 700;">Email:</span> <span
                                                     th:text="${proveedor.email}"></span><br>
-
                                                 <span style="font-weight: 700;">Contraseña:</span> *******
-
                                             </p>
-
                                             <div>
                                                 <a th:href="@{/perfil/actualizarProveedor}"
                                                    class="u-btn u-button-style u-text-body-color u-btn-1">
                                                     🛠 Actualizar mis datos personales
                                                 </a>
                                             </div>
-
                                         </div>
-
-
-
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
@@ -165,7 +106,6 @@
             </div>
         </div>
     </section>
-
     <!-- SOLICITUDES PROVEEDOR -->
     <div>
         <div class="container m-5">
@@ -173,37 +113,33 @@
             <div th:if="${solicitudes == null || solicitudes.isEmpty()}">
                 <p> Ya ha contestado todas las solicitudes de trabajo </p>
             </div>
-
             <ul id="solicitudes-lista" th:if="${solicitudes != null && !solicitudes.isEmpty()}">
                 <li th:each="trabajo : ${solicitudes}" class="col-md-4"
                     style=" display: inline-flex; align-items: center; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ccc;   flex-grow: 1; ">
                     <div style="flex-grow: 1;">
-                        <div style="flex: 3; max-height: 100px; overflow: hidden; text-overflow: ellipsis">
-                            <strong>Usuario:</strong> <span
-                                th:text="${trabajo.usuario != null ? trabajo.usuario.nombre + '   ' + trabajo.usuario.apellido : 'Usuario no disponible'}"></span><br>
-                            <strong>Descripción:</strong> <span th:text="${trabajo.descripcion}"></span>
-
+                        <div style="flex: 3;  overflow: hidden; text-overflow: ellipsis">  <!-- max-height: 100px; -->
+                            <div>
+                                <strong>Usuario:</strong> <span
+                                    th:text="${trabajo.usuario != null ? trabajo.usuario.nombre + '   ' + trabajo.usuario.apellido : 'Usuario no disponible'}"></span><br>
+                                <strong>Descripción:</strong> <span th:text="${trabajo.descripcion}"></span>
+                            </div>
                             <div class="solicitud-buttons" style="display: flex; align-items: center ; gap: 12px;">
-
                                 <form th:action="@{/trabajo/aceptarSolicitud/__${trabajo.id}__}" method="post">
                                     <input type="hidden" id="trabajoId" th:value="${trabajo.id}" />
                                     <button style="background-color: #ccd5ae;"
                                             class="u-btn u-button-style u-text-body-color u-btn-1"
                                             type="submit">Aceptar👍</button>
                                 </form>
-
                                 <form th:action="@{/trabajo/rechazarSolicitud/__${trabajo.id}__}" method="post">
                                     <input type="hidden" id="trabajoId" th:value="${trabajo.id}" />
                                     <button style="background-color: #ccd5ae;"
                                             class="u-btn u-button-style u-text-body-color u-btn-1"
                                             type="submit">Rechazar👎</button>
                                 </form>
-
                             </div>
                         </div>
                     </div>
                 </li>
-
             </ul>
         </div>
     </div>
@@ -218,39 +154,30 @@
                    th:if="${NoRealizados != null && !NoRealizados.isEmpty()}">
                 <thead class="align-items-center">
                     <tr>
-                        <th scope="col">Id Trabajo</th>
                         <th scope="col">Usuario</th>
                         <th scope="col">Descripción</th>
                         <th scope="col">Solicitud</th>
                         <th scope="col"> Marcar Como Realizado </th>
-
                     </tr>
                 </thead>
                 <tbody class="table-group-divider" th:each="trabajo : ${NoRealizados}">
                     <tr>
-                        <th scope="row" th:text="${trabajo.id}"></th>
                         <th
                             th:text="${trabajo.usuario != null ? trabajo.usuario.nombre + ' ' + trabajo.usuario.apellido : 'Usuario no disponible'}">
                         </th>
                         <td th:text="${trabajo.descripcion}"></td>
                         <td th:text="${trabajo.solicitud}"></td>
-
                         <td class="align-items-center">
                             <form th:action="@{/trabajo/marcarRealizado/__${trabajo.id}__}" method="post">
                                 <input type="hidden" id="trabajoId" th:value="${trabajo.id}" />
                                 <button type="submit"> ✅ </button>
                             </form>
-
                         </td>
-
-
                     </tr>
-
                 </tbody>
             </table>
         </div>
     </div>
-
     <!-- todos-->
     <div>
         <div class="container m-5">
@@ -262,18 +189,15 @@
             <table class="table table-success table-hover table-striped"
                    th:if="${trabajosProov != null && !trabajosProov.isEmpty()}">
                 <thead class="align-items-center">
-                <th scope="col">Id Trabajo</th>
                 <th scope="col">Usuario</th>
                 <th scope="col">Descripción</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Calificación</th>
                 <th scope="col">Comentario de la calificación</th>
-
                 </tr>
                 </thead>
                 <tbody class="table-group-divider" th:each="trabajo : ${trabajosProov}">
                     <tr>
-                        <th scope="row" th:text="${trabajo.id}"></th>
                         <th
                             th:text="${trabajo.usuario != null ? trabajo.usuario.nombre + ' ' + trabajo.usuario.apellido : 'Usuario no disponible'}">
                         </th>
@@ -283,22 +207,16 @@
                             <span th:if="${trabajo.calificacion == 0}">No se ha calificado este trabajo aún</span>
                             <span th:if="${trabajo.calificacion != 0}" th:text="${trabajo.calificacion}"></span>
                         </td>
-
                         <td th:text="${trabajo.comentario}"></td>
-
                     </tr>
-
                 </tbody>
             </table>
         </div>
     </div>
-
-
     <!-------FOOTER------>
     <footer th:replace="~{/fragments/footer :: footer}"
             th:with="id=${id}, nombre=${nombre}, apellido=${apellido}, barrio=${barrio}, direccion=${direccion}, email=${email}, imagen=${imagen}, rol=${rol}">
     </footer>
     <script th:src="@{/js/dropdown.js}" type="text/javascript"></script>
 </body>
-
 </html>
