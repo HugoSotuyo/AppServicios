@@ -29,7 +29,8 @@ public class Proveedor {
     private Rol rol;
     @OneToOne
     private Imagen imagen;
-
+    
+    
     public Proveedor() {
     }
 

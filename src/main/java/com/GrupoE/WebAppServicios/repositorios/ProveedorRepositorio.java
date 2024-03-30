@@ -1,6 +1,7 @@
 package com.GrupoE.WebAppServicios.repositorios;
 
 import com.GrupoE.WebAppServicios.entidades.Proveedor;
+import com.GrupoE.WebAppServicios.enumeraciones.Rol;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -19,4 +20,6 @@ public interface ProveedorRepositorio extends JpaRepository<Proveedor,String>{
     public List<Proveedor> buscarPorNombreDescripcion(@Param("servicio")String servicio);
     /*@Query("SELECT p FROM Proveedor p WHERE p.apellido = :apellido")
     public List<Proveedor> buscarPorApellidoProveedor(@Param("apellido")String apellido);*/
+    @Query("SELECT CASE WHEN COUNT(u) > 0 THEN true ELSE false END FROM Proveedor p WHERE p.rol = :rol")
+    boolean existsByRol(@Param("rol") Rol rol);
 }

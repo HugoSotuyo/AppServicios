@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.GrupoE.WebAppServicios.controladores;
 
 import com.GrupoE.WebAppServicios.entidades.Proveedor;
@@ -19,10 +23,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ *
+ * @author hdsot
+ */
 @Controller
 @RequestMapping("/")
 public class PortalControlador {
-
+    
     @Autowired
     private UsuarioServicio usuarioServicio;
     @Autowired
@@ -72,7 +80,7 @@ public class PortalControlador {
             modelo.put("exito", "Usuario registrado correctamente");
             return "index.html";
         } catch (MyException ex) {
-            modelo.put("Error", ex.getMessage());
+            modelo.put("error", ex.getMessage());
             modelo.put("nombre", nombre);
             modelo.put("email", email);
             return "registroUsuario.html";
@@ -102,7 +110,7 @@ public class PortalControlador {
             modelo.put("exito", "Proveedor registrado correctamente");
             return "index.html";
         } catch (MyException ex) {
-            modelo.put("Error", ex.getMessage());
+            modelo.put("error", ex.getMessage());
             modelo.put("nombre", nombre);
             modelo.put("email", email);
             return "registroProveedor.html";
@@ -391,4 +399,5 @@ public class PortalControlador {
             return "volverse_proveedor.html";
         }
     }
+    
 }

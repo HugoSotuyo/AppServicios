@@ -40,15 +40,17 @@ public class ProveedorServicio implements UserDetailsService {
     @Autowired
     private ImagenServicio imagenServicio;
     
+    
+    
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
     
     @Transactional
 
-    public void registrar(MultipartFile archivo, String nombre, String apellido, String direccion, String servicio, String remuneracion, String descripcion, String email, String password, String password2) throws MyException {
+    public void registrar(MultipartFile archivo, String nombre, String apellido, String direccion, String servicio, String remuneracion, String descripcion, String email, String password, String password2)throws MyException {
 
-        validar(nombre, apellido, direccion, descripcion, remuneracion, email, password, password2);
-
+        validar(nombre, apellido, direccion, descripcion,  email, password, password2);
+//remuneracion,
         Proveedor proveedor = new Proveedor();
         proveedor.setCantTrabajos(0.0);
         proveedor.setCalificacion(0.0);
@@ -62,11 +64,14 @@ public class ProveedorServicio implements UserDetailsService {
         proveedor.setRemuneracion(remuneracion);
 
         proveedor.setEmail(email);
+        
+        
 
         proveedor.setPassword(new BCryptPasswordEncoder().encode(password));
 
         proveedor.setRol(Rol.PROVEEDOR);
-
+                
+       
         Imagen imagen = imagenServicio.guardar(archivo);
         proveedor.setImagen(imagen);
 
@@ -76,8 +81,8 @@ public class ProveedorServicio implements UserDetailsService {
     @Transactional
     public void VolverseProveedor(Imagen imagen, String nombre, String apellido, String direccion, String servicio, String remuneracion, String descripcion, String email, String password, String password2) throws MyException {
 
-        validar(nombre, apellido, direccion, descripcion, remuneracion, email, password, password2);
-
+        validar(nombre, apellido, direccion, descripcion,  email, password, password2);
+//remuneracion,
         Proveedor proveedor = new Proveedor();
         proveedor.setCantTrabajos(0.0);
         proveedor.setCalificacion(0.0);
@@ -104,8 +109,8 @@ public class ProveedorServicio implements UserDetailsService {
     @Transactional
     public void actualizar(MultipartFile archivo, String idProveedor, String idTrabajo, Integer cantTrabajos, String nombre, String apellido, String direccion, String descripcion, String remuneracion, String email, String password, String password2) throws MyException {
         Double calificacion = 0.0;
-        validar(nombre, apellido, direccion, descripcion, remuneracion, email, password, password2);
-
+        validar(nombre, apellido, direccion, descripcion,  email, password, password2);
+//remuneracion,
         Optional<Proveedor> respuesta = proveedorRepositorio.findById(idProveedor);
         Optional<Trabajo> respuestaTrabajo = trabajoRepositorio.findById(idTrabajo);
         if (respuestaTrabajo.isPresent()) {
@@ -146,8 +151,8 @@ public class ProveedorServicio implements UserDetailsService {
             String descripcion, String remuneracion, String email,
             String password, String password2) throws MyException {
 
-        validarActualizacion(session, nombre, apellido, direccion, descripcion, remuneracion, email, password, password2);
-
+        validarActualizacion(session, nombre, apellido, direccion, descripcion,  email, password, password2);
+//remuneracion,
         Optional<Proveedor> respuesta = proveedorRepositorio.findById(idProveedor);
 
         if (respuesta.isPresent()) {
@@ -219,9 +224,9 @@ public class ProveedorServicio implements UserDetailsService {
     @Transactional//(readOnly=True)
     public List<Proveedor> listarProveedores() {
 
-        List<Proveedor> proveedores = new ArrayList();
+        List<Proveedor> proveedores = proveedorRepositorio.findAll();
 
-        proveedores = proveedorRepositorio.findAll();
+        
 
         return proveedores;
     }
@@ -243,8 +248,8 @@ public class ProveedorServicio implements UserDetailsService {
     }
 
 //VALIDACIONES
-    public void validar(String nombre,String apellido, String direccion, String descripcion, String remuneracion, String email, String password, String password2) throws MyException {
-
+    private void validar(String nombre,String apellido, String direccion, String descripcion,  String email, String password, String password2) throws MyException {
+             //String remuneracion, 
         /*Validar Nombre*/
         if (nombre == null || nombre.isEmpty()) {
             throw new MyException("El nombre no pude ser nulo ni estar vacio");
@@ -277,19 +282,19 @@ public class ProveedorServicio implements UserDetailsService {
         if (descripcion == null || descripcion.isEmpty()) {
             throw new MyException("La descripcion no puede ser nula o estar vacío");
         }
-        /*Validar Remuneracion*/
-        if (remuneracion == null || remuneracion.isEmpty()) {
-            throw new MyException("La remuneracion no puede ser nula o estar vacío");
-        }
-        boolean val = false;
-        try {
-            double valor = Double.parseDouble(remuneracion);
-        } catch (Exception e) {
-            val = true;
-        }
-        if (val) {
-            throw new MyException("La remuneracion contiene algo que no sea un numero");
-        }
+        ///*Validar Remuneracion*/
+        //if (remuneracion == null || remuneracion.isEmpty()) {
+        //    throw new MyException("La remuneracion no puede ser nula o estar vacío");
+        //}
+        //boolean val = false;
+        //try {
+        //    double valor = Double.parseDouble(remuneracion);
+        //} catch (Exception e) {
+        //    val = true;
+        //}
+        //if (val) {
+        //    throw new MyException("La remuneracion contiene algo que no sea un numero");
+        //}
         /*Validar Direccion*/
         if (direccion == null || direccion.isEmpty()) {
             throw new MyException("La direccion no puede ser nula o estar vacío");
@@ -298,11 +303,15 @@ public class ProveedorServicio implements UserDetailsService {
         if (email == null || email.isEmpty()) {
             throw new MyException("El email no puede ser nulo o estar vacío");
         }
-          if (proveedorRepositorio.buscarProveedorPorEmail(email) != null || usuarioRepositorio.buscarUsuarioPorEmail(email) != null) {
-            throw new MyException("Hay otro usuario con este email. Elija otro");
-        }  
+        //  if (proveedorRepositorio.buscarProveedorPorEmail(email) != null || usuarioRepositorio.buscarUsuarioPorEmail(email) != null) {
+          //  throw new MyException("Hay otro usuario con este email. Elija otro");
+        //}  
          
         /*Validar contraseña*/
+        if (usuarioRepositorio.buscarUsuarioPorEmail(email) != null) {
+            throw new MyException("El email ya se encuentra registrado");
+        }
+
         if (password == null || password.isEmpty() || password.length() <= 5) {
             throw new MyException("La contraseña no puede estar vacía, y debe tener más de 5 dígitos");
         }
@@ -315,30 +324,30 @@ public class ProveedorServicio implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Proveedor proveedor = proveedorRepositorio.buscarProveedorPorEmail(email);
         if (proveedor != null) {
-            List<GrantedAuthority> permisos = new ArrayList();
+            List<GrantedAuthority> permisos = new ArrayList<>();
             GrantedAuthority p = new SimpleGrantedAuthority("ROLE_" + proveedor.getRol().toString());//concatenacion ROLE_USER
 
             permisos.add(p);
 
             ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 
-            HttpSession sessionP = attr.getRequest().getSession(true);
+            HttpSession session = attr.getRequest().getSession(true);
 
-            sessionP.setAttribute("proveedorSession", proveedor);
+            session.setAttribute("proveedorSession", proveedor);
 
-            ServletRequestAttributes attrP = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+            //ServletRequestAttributes attrP = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 
-            HttpSession session = attrP.getRequest().getSession(true);
-            session.setAttribute("proveedorsession", proveedor);
+            //HttpSession session = attrP.getRequest().getSession(true);
+            //session.setAttribute("proveedorSession", proveedor);
 
             return new User(proveedor.getEmail(), proveedor.getPassword(), permisos);
         } else {
-            return null;
+            throw new UsernameNotFoundException("Usuario no encontrado con el email: " + email);
         }
     }
 
-    public void validarActualizacion(HttpSession session, String nombre, String apellido, String direccion, String descripcion, String remuneracion, String email, String password, String password2) throws MyException {
-
+    public void validarActualizacion(HttpSession session, String nombre, String apellido, String direccion, String descripcion,  String email, String password, String password2) throws MyException {
+//String remuneracion,
         /*Validar Nombre*/
         if (nombre == null || nombre.isEmpty()) {
             throw new MyException("El nombre no pude ser nulo ni estar vacio");
@@ -371,7 +380,7 @@ public class ProveedorServicio implements UserDetailsService {
         if (descripcion == null || descripcion.isEmpty()) {
             throw new MyException("La descripcion no puede ser nula o estar vacío");
         }
-        /*Validar Remuneracion*/
+        /*Validar Remuneracion
         if (remuneracion == null || remuneracion.isEmpty()) {
             throw new MyException("La remuneracion no puede ser nula o estar vacío");
         }
@@ -383,7 +392,7 @@ public class ProveedorServicio implements UserDetailsService {
         }
         if (val) {
             throw new MyException("La remuneracion contiene algo que no sea un numero");
-        }
+        }*/
         /*Validar Direccion*/
         if (direccion == null || direccion.isEmpty()) {
             throw new MyException("La direccion no puede ser nula o estar vacío");

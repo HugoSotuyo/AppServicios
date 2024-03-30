@@ -3,6 +3,7 @@ package com.GrupoE.WebAppServicios.controladores;
 import com.GrupoE.WebAppServicios.entidades.Usuario;
 import com.GrupoE.WebAppServicios.enumeraciones.Rol;
 import com.GrupoE.WebAppServicios.errores.MyException;
+import com.GrupoE.WebAppServicios.servicios.ProveedorServicio;
 import com.GrupoE.WebAppServicios.servicios.UsuarioServicio;
 import java.util.List;
 import javax.servlet.http.HttpSession;
@@ -22,6 +23,8 @@ public class AdministradorControlador {
 
     @Autowired
     private UsuarioServicio usuarioServicio;
+    @Autowired
+    private ProveedorServicio proveedorServicio;
     @Autowired
     private PortalControlador portalControlador;
 
